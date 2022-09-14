@@ -19,7 +19,7 @@ console.log(numbersDivision);
 const numbersMultiplication = userFirstNumber / userSecondNumber;
 console.log(numbersMultiplication);
 const yearOfBirth = prompt ("What year were you born in?");
-let userAge =/*Current year*/ 2022 - yearOfBirth;
+let userAge = new Date("September 11, 2022 01:15:00").getFullYear() - yearOfBirth;
 console.log(userAge);
 //Probably you mean to calculate and display ("Знайти та обчислити...") in 10 point?
 let someNumber1 = 674;
