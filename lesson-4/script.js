@@ -14,46 +14,44 @@ if (userLogin == "admin" && userPassword == "12pass33210") {
 let userMoney = +prompt("How much money do you have?");
 console.log(`User have ${userMoney} UAH`);
 console.log("Here is our price list below:")
-let Watermelon = 30;
-console.log(`Watermelon: ${Watermelon} UAH`);
-let Carrot = 8;
-console.log(`Carrot: ${Carrot} UAH`);
-let Potato = 12;
-console.log(`Potato: ${Potato} UAH`);
+const priceWatermelon = 30;
+console.log(`Watermelon: ${priceWatermelon} UAH`);
+const priceCarrot = 8;
+console.log(`Carrot: ${priceCarrot} UAH`);
+const pricePotato = 12;
+console.log(`Potato: ${pricePotato} UAH`);
 let userChoice = prompt("What would you like to buy?")
-const userChooseWatermelon = userMoney / Watermelon;
+const userChooseWatermelon = userMoney / priceWatermelon;
 // console.log(Math.floor(userChooseWatermelon));
-const userChooseWatermelonChange = userMoney % Watermelon;
+const userChooseWatermelonChange = userMoney % priceWatermelon;
 // console.log(userChooseWatermelonChange);
-const userChooseCarrot = userMoney / Carrot;
+const userChooseCarrot = userMoney / priceCarrot;
 // console.log(Math.floor(userChooseCarrot));
-const userChooseCarrotChange = userMoney % Carrot;
+const userChooseCarrotChange = userMoney % priceCarrot;
 // console.log(userChooseCarrotChange);
-const userChoosePotato = userMoney / Potato;
+const userChoosePotato = userMoney / pricePotato;
 // console.log(Math.floor(userChoosePotato));
-const userChoosePotatoChange = userMoney % Potato;
+const userChoosePotatoChange = userMoney % pricePotato;
 // console.log(userChoosePotatoChange);
-if (userChoice == "Watermelon" && userMoney >= Watermelon) {
+if (userChoice === "Watermelon" && userMoney >= priceWatermelon) {
     console.log(`За ${userMoney} грн Ви можете придбати ${Math.floor(userChooseWatermelon)} одиниць даного продукту. У Вас залишиться ${userChooseWatermelonChange} грн`);
-} else if (userChoice == "Watermelon" && userMoney < 8) {
+} else if (userChoice === "Watermelon" && userMoney < 8) {
     console.log(`На жаль, у Вас недостатньо коштів для купівлі хоча б 1 шт. будь-якого продукту.`)
-} else if (userChoice == "Watermelon" && userMoney < Watermelon) {
+} else if (userChoice === "Watermelon" && userMoney < priceWatermelon) {
     console.log(`У вас недостатньо коштів, для купівлі хоча б 1 шт. ${userChoice}`)
 }
-if (userChoice == "Carrot" && userMoney >= Carrot) {
+if (userChoice === "Carrot" && userMoney >= priceCarrot) {
     console.log(`За ${userMoney} грн Ви можете придбати ${Math.floor(userChooseCarrot)} одиниць даного продукту. У Вас залишиться ${userChooseCarrotChange} грн`);
-} else if (userChoice == "Carrot" && userMoney < 8) {
+} else if (userChoice === "Carrot" && userMoney < 8) {
     console.log(`На жаль, у Вас недостатньо коштів для купівлі хоча б 1 шт. будь-якого продукту.`)
-}
- else if (userChoice == "Carrot" && userMoney < Carrot) {
+} else if (userChoice === "Carrot" && userMoney < priceCarrot) {
     console.log(`У вас недостатньо коштів, для купівлі хоча б 1 шт. ${userChoice}`)
 }
-if (userChoice == "Potato" && userMoney >= Potato) {
+if (userChoice === "Potato" && userMoney >= pricePotato) {
     console.log(`За ${userMoney} грн Ви можете придбати ${Math.floor(userChoosePotato)} одиниць даного продукту. У Вас залишиться ${userChoosePotatoChange} грн`);
-} else if (userChoice == "Potato" && userMoney < 8) {
+} else if (userChoice === "Potato" && userMoney < 8) {
     console.log(`На жаль, у Вас недостатньо коштів для купівлі хоча б 1 шт. будь-якого продукту.`)
-}
- else if (userChoice == "Potato" && userMoney < Potato) {
+} else if (userChoice === "Potato" && userMoney < pricePotato) {
     console.log(`У вас недостатньо коштів, для купівлі хоча б 1 шт. ${userChoice}`)
 }
 let triangleSide1 = +prompt("Enter length of the first side of triangle.")
@@ -67,8 +65,8 @@ if ((triangleSide2 + triangleSide3) > triangleSide1 && (triangleSide3 + triangle
 /* 18 HW poin
 
 2 && 0 && 3 || true && false // false;
-false || " " || 3 && true // true;
-1 && 1000 && '0' || 0 && 'Bob' // 0
+false || " " || 3 && true // " ";
+1 && 1000 && '0' || 0 && 'Bob' // '0'
 -1 || 0 || 0 && "" || 1010 // -1
 
 */
