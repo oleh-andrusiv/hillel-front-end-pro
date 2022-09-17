@@ -1,4 +1,4 @@
-const correctResult = (0.1 + 0.2).toFixed(1);
+const correctResult = +(0.1 + 0.2).toFixed(1);
 console.log(correctResult);
 const userLogin = prompt("Enter your login.");
 console.log(userLogin);
