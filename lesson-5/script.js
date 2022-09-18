@@ -4,7 +4,7 @@ for (i = 10; i <= 25; i += 0.5) {
 }
 // Запитати та зберегти число введене із prompt.
 // Визначати чи це число просте
-const someNumberFromUser = +prompt("Enter some number here, please.")
+const someNumberFromUser = +prompt("Enter some positive number here, please.")
 if (someNumberFromUser === 1) {
     console.log(`${someNumberFromUser} is neither prime nor composite number.`);
 } else if (someNumberFromUser === 2) {
@@ -23,6 +23,30 @@ if (someNumberFromUser === 1) {
 } else {
     console.log(`${someNumberFromUser} is not a prime number.`);
 }
+/* Alternate decision is below
+const someNumberFromUser = +prompt("Enter some positive number here, please.");
+let isPrime = true;
+if (someNumberFromUser === 1) {
+    console.log("1 is neither prime nor composite number.");
+}
+else if (someNumberFromUser > 1) {
+    for (let i = 2; i < someNumberFromUser; i++) {
+        if (someNumberFromUser % i == 0) {
+            isPrime = false;
+            break;
+        }
+    }
+    if (isPrime) {
+        console.log(`${someNumberFromUser} is a prime number`);
+    } else {
+        console.log(`${someNumberFromUser} is not a prime number`);
+    }
+}
+else {
+    console.log("The number is not a prime number.");
+}
+*/
+
 // /*Запитати та зберегти суму покупки введене із prompt. Обрахувати знижку та повідомити користувачу значення знижки. 
 // Якщо сума покупки до 100 UAН - знижка 3%; якщо сума покупки до 200 UAH - знижка 5%; якщо сума покупки перевищує 200 UAH - знижка 7%*/
 const purchasePrice = +prompt("What is your last purchase price in UAH?");
@@ -40,9 +64,9 @@ for (i = 2; i < 10; i++) {
     }
 }
 // Умова: один долар коштує 36,76 гривень. Вивести дані з розрахунком вартості 10, 20, 30... 100 доларів. Формат (10 USD = 3 676 UAH)
-const exangeRateUSDtoUAH = 36.76;
+const exchangeRateUSDtoUAH = 36.76;
 for (i = 10; i <= 100; i += 10) {
-    console.log(`${i} USD = ${(exangeRateUSDtoUAH * i).toLocaleString()} UAH`)
+    console.log(`${i} USD = ${(exchangeRateUSDtoUAH * i).toLocaleString()} UAH`)
 }
 /*
 Запитати у користувача 15 чисел і обрахувати, скільки серед них додатніх, від’ємних і нулів. 
