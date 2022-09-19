@@ -1,5 +1,5 @@
 // //Вивести в console числа, від 10 до 25 з кроком 0.5 (10 й 25 включно)
-for (i = 10; i <= 25; i += 0.5) {
+for (let i = 10; i <= 25; i += 0.5) {
     console.log(i)
 }
 // Запитати та зберегти число введене із prompt.
@@ -11,7 +11,7 @@ if (someNumberFromUser === 1) {
     console.log(`${someNumberFromUser} is a prime number.`);
 } else if (someNumberFromUser > 2) {
     for (let i = 2; i < someNumberFromUser; i++) {
-        if (someNumberFromUser % i == 0) {
+        if (someNumberFromUser % i === 0) {
             console.log(`${someNumberFromUser} is not a prime number`);
             break;
         }
@@ -31,7 +31,7 @@ if (someNumberFromUser === 1) {
 }
 else if (someNumberFromUser > 1) {
     for (let i = 2; i < someNumberFromUser; i++) {
-        if (someNumberFromUser % i == 0) {
+        if (someNumberFromUser % i === 0) {
             isPrime = false;
             break;
         }
@@ -50,22 +50,24 @@ else {
 // /*Запитати та зберегти суму покупки введене із prompt. Обрахувати знижку та повідомити користувачу значення знижки. 
 // Якщо сума покупки до 100 UAН - знижка 3%; якщо сума покупки до 200 UAH - знижка 5%; якщо сума покупки перевищує 200 UAH - знижка 7%*/
 const purchasePrice = +prompt("What is your last purchase price in UAH?");
-if (purchasePrice < 100) {
+if (purchasePrice > 0 && purchasePrice < 100) {
     console.log(`Your discount is 3%`);
-} else if ( purchasePrice < 200) {
+} else if (purchasePrice >= 100 && purchasePrice < 200) {
     console.log(`Your discount is 5%`);
-} else {
+} else if (purchasePrice >= 200) {
     console.log(`Your discount is 7%`);
+} else {
+    console.log(`Sory, you have no discount.`);
 }
 // Вивести таблицю множення чисел від 2 до 9 у зрозумілому форматі
-for (i = 2; i < 10; i++) {
-    for (j = 2; j < 10; j++) {
+for (i = 2; i <= 9; i++) {
+    for (j = 2; j <= 9; j++) {
        console.log(`${i} * ${j} = ${i * j}`);
     }
 }
 // Умова: один долар коштує 36,76 гривень. Вивести дані з розрахунком вартості 10, 20, 30... 100 доларів. Формат (10 USD = 3 676 UAH)
 const exchangeRateUSDtoUAH = 36.76;
-for (i = 10; i <= 100; i += 10) {
+for (let i = 10; i <= 100; i += 10) {
     console.log(`${i} USD = ${(exchangeRateUSDtoUAH * i).toLocaleString()} UAH`)
 }
 /*
@@ -78,7 +80,7 @@ let randomNumberIsZero = 0;
 let randomNumberIsPositive = 0;
 let randomNumberIsEven = 0;
 let randomNumberIsOdd = 0;
-for (i = 1; i <= 15; i++) {
+for (let i = 1; i <= 15; i++) {
     const randomNumberToCulculate = +prompt(`Enter random number #${i}`);
     console.log(randomNumberToCulculate);
     switch (Math.sign(randomNumberToCulculate)) {
