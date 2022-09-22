@@ -67,7 +67,7 @@ const spaceNumbersSum = (num_1,num_2)=> {
 }
 console.log(spaceNumbersSum(2,-6));
 // Написати функцію, яка приймає та конвертує температуру із Цельсій у Фаренгейт
-function convertCelsiusToFahrenheit(celsius) {
+const convertCelsiusToFahrenheit = (celsius)=> {
     if (!isNumber(celsius)) {
         return "Some arguments has an incorrect type."
     }
@@ -75,12 +75,12 @@ function convertCelsiusToFahrenheit(celsius) {
   }
 console.log(convertCelsiusToFahrenheit(32));
 // Написати фунцію, яка генерує випадкове ціле число в проміжку від 0 до 40
-function randomInt(min, max) {
-        let randomCalcResult = Math.floor(Math.random() * (max - min)) + min;
-        if (randomCalcResult === 0) {
-            return (randomCalcResult + 7)
+const randomInt = (num_1, num_2)=> {
+        let randomIntCalcResult = Math.floor(Math.random() * (num_2 - num_1)) + num_1;
+        if (randomIntCalcResult === 0) {
+            return (randomIntCalcResult + 7)
         } else {
-            return randomCalcResult
+            return randomIntCalcResult
         }
     }
 console.log(randomInt(0,40))
