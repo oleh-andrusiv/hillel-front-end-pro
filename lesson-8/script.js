@@ -1,201 +1,177 @@
 const isNumber = (number) => {
-    return typeof number === 'number' && !isNaN(number);
-} 
-const isObject = (object) => {
-    return typeof object === "object";
-};
+    return typeof number === 'number' && !isNaN (number) 
+}
 const isString = (string) => {
-    return typeof string === 'string' && string.length > 0;
+    return typeof string === 'string' && string.length > 0  
 }
 
-/* 1. Створити функцію-конструктор Людини.
-Властивості, які будуть описувати екземпляр Людини -
-ім'я, вік, стать, національність, країна, список країн для подорожей.
-Створити універсальні функції - знайомство, прокидатися,
-засинати й список країн, які Людина хоче відвідати.
-Роботу цих функцій можна виводити через console.log.
-Але в кожній з функцій повинно використовуватись якомога більше
-характеристик конкретної Людини на якій ця функція викликається
-(підказка: тут треба використатии call/apply)
-*/
+// 1. Створити масив, довжину та елементи якого задає користувач (через prompt). Елементами масиву повинні бути числа
 
-function introduceOneself () {
-    console.log(`Nice to meet you! My name is ${this.name}. I'm ${this.age} years old. My native country is ${this.country}.`);
-}
+const createNewArray = () => {
+    let newArray = [];
+    const askNewArrayLength = +prompt("How many elements would array contain?");
+    if (!isNumber(askNewArrayLength)) {
+        return console.log(`You must enter a number.`);
+    } 
 
-function wakeUp () {
-    console.log(`Now ${this.gender} ${this.name} from ${this.country} is waking up.`);
-}
-
-function fallAsleep () {
-    console.log(`Now ${this.gender} ${this.name} from ${this.country} is falling asleep.`);
-}
-
-function countriesToVisite () {
-    console.log(`Everyone has a countries to visit wishlist. And here is ${this.name}'s counties wishlist: ${this.countryVisitList}.`);
-}
-
-function Human (name, age, gender, nationality, country, countryVisitList) {
-    this.name = name;
-    this.age = age;
-    this.gender = gender;
-    this.nationality = nationality;
-    this.country = country;
-    this.countryVisitList = countryVisitList;
-} 
-
-const Aeneas = new Human ('Aeneas', '12', 'male', 'greek', 'Ukraine', ['Tunisia', 'Italy']);
-
-introduceOneself.call(Aeneas);
-
-/* 2. Створити власну реалізацію методу .bind
-(підказка: в кінці треба помістити цю власну функцію у прототип -
-    Function.prototype.myOwnBind = function () { [тут_код_кастомного_bind] }
-*/
-
-//Перше рішення
-Function.prototype.myOwnBind = function(fn, context) {
-  let bindArgs = [].slice.call(arguments, 2);
-  
-  return function() {
-    let fnArgs = [].slice.call(arguments);
-
-    return fn.apply(context, bindArgs.concat(fnArgs));
-  };
-};
-
-/* 3. Cтворити функцію, котра приймає 2 параметри - об'єкти.
-Функція повинна перевіряти чи ці 2 обʼєкти абсолютно ідентичні
-та повертає результат у зрозумілому форматі
-*/
-
-const firstObject = {
-    'name': 'Bob',
-    'surName': 'Good',
-    'more': {
-        'city': ['Poltava', 'Kherson']
-    }
-}
-const secondObject = {
-    'name': 'Bob',
-    'surName': 'Good',
-    'more': {
-        'city': ['Poltava', 'Kyiv']
-    }
-}
-
-// To compare "simple" objects (without objects as properties)
-
-/*
-const compareSimpleObjects = (obj1, obj2) => {
-
-    if (Object.keys(obj1).length !== Object.keys(obj2).length) {
-        return console.log(`Compared objects are not absolutely identical.`)
+    for (let i = 0; i <= askNewArrayLength - 1; i++) {
+        let askNewArrayElements = +prompt(`Enter value of the element #${i}.`);
+        if (!isNumber(askNewArrayElements)) {
+            console.log(`Your array values can be only a numbers.`);
+            break
+        } 
+        newArray[i] = askNewArrayElements
     }
 
-    for (let key in obj1) {
-        if (obj1[key] !== obj2[key]) {
-            return console.log(`Compared objects are not absolutely identical.`)
-        }
+    if (newArray.length > 0) {
+        return newArray;
     }
-    return console.log(`Compared objects are absolutely identical.`);
 }
+const newArray = createNewArray()
 
-console.log(compareSimpleObjects(firstObject, secondObject))
+// 2. Відсортувати масив за зростанням.
 
-*/
+newArray.sort((a, b) => a - b);
 
-// To compare deep nested objects
+// 3. Дано масив - список покупок. Кожен елемент масиву - це обʼєкт вигляду: {productName: 'bread', productPrice: 14.5, productQuantity: 2}. Мінімальний довжина такого масиву - 6
 
-const areObjectsAbsolutelyIdentical = (obj1, obj2) => {
+let purchaseList = [
+    {productName: 'bread', productPrice: 14.5, productQuantity: 1},
+    {productName: 'mineral water', productPrice: 11.2, productQuantity: 6},
+    {productName: 'sour cream', productPrice: 24, productQuantity: 2},
+    {productName: 'carrot', productPrice: 17.9, productQuantity: 3},
+    {productName: 'energy bar', productPrice: 4.5, productQuantity: 7},
+    {productName: 'milk', productPrice: 35, productQuantity: 3},
+]
 
-  if (Object.keys(obj1).length !== Object.keys(obj2).length) {
-    return false;
-  }
+// Порахувати загальну вартість корзини та вивести суму у зрозумілому форматі
 
-  for (let key in obj1) {
+let totalPurchaseSum = 0;
+purchaseList.forEach(product => totalPurchaseSum += product.productPrice * product.productQuantity)
+console.log(`Total cost: ${totalPurchaseSum}`);
 
-    const isObjects = isObject(obj1[key]) && isObject(obj2[key]);
+// Порахувати найменшу кількість продукту, який потрібно купити
 
-    if ((isObjects && !areObjectsAbsolutelyIdentical(obj1[key], obj2[key])) ||
-        (!isObjects && obj1[key] !== obj2[key])) {
-        return false;
-    }
-  }
-    return true;
-};
+let lowestQuantity = Math.min(...(purchaseList.map(product => product.productQuantity)));
 
-areObjectsAbsolutelyIdentical(firstObject, secondObject); 
+// Порахувати загальну кількість продуктів
 
-/* 4. Створіть функцію-конструктор Calculator, який створює об’єкти з трьома методами:
-enterData - запитує два значення за допомогою prompt і запам’ятовує їх у властивостях об’єкта.
-calculateSum() повертає суму цих властивостей.
-calculateNSD() повертає результат пошуку НСД
-calculateNSK() повертає результат пошуку НСК
-*/
+let totalQuantity = 0;
+purchaseList.forEach(product => totalQuantity += product.productQuantity)
 
-function Calculator () {
+// Знайти найдорожчий продукт
 
-    if (!new.target) {
-        return new Calculator();
-    }
+let mostExpensiveProduct = Math.max(...(purchaseList.map(product => product.productPrice)));
 
-    this.enterData = function() {
-        
-        this.number1 = +prompt('Enter the first number.');
-        this.number2 = +prompt('Enter the second number.');
-    }
-    
-    this.calculateSum = function() { 
-         
-        if (this.number1 === undefined || this.number1 === undefined) {
-            this.enterData() 
-        }
-        return this.number1 + this.number2;
-    };
+// Створити функцію, яка повинна додавати новий продукт в існуючий масив
+// Дані про новий продукт - користувач вводить із prompt
 
-    this.calculateNSD = function() {
-
-        if (this.number1 === undefined || this.number1 === undefined) {
-            this.enterData() 
+const addNewProduct = (array) => {
+    let newProduct = {productName: null, productPrice: null, productQuantity: null};
+    for (let key in newProduct) {
+        let askNewProductData = prompt(`Enter new product ${key}`);
+        if (!isString(askNewProductData)) {
+            return console.log(`The value can't be empty.`);
         }
 
-        if (this.number1 <= 0 || this.number2 <= 0) {
-            return "Zero or a negative number cann't be an arguments."
-        }
-
-        if (!isNumber(this.number1) || !isNumber(this.number2)) {
-            return "Some arguments has an incorrect type."
-        }
-        
-        const smallerNumber = Math.min(this.number1, this.number2);
-        const biggerNumber = Math.max(this.number1, this.number2);
-        
-        if (biggerNumber % smallerNumber === 0) {
-            return smallerNumber;
-        }
-        
-        for (let i = smallerNumber - 1; i > 0; i--) {
-            if (biggerNumber % i === 0 && smallerNumber % i === 0) {
-                return i
+        if (key === 'productPrice' || key === 'productQuantity') {
+            if (!isNumber(Number(askNewProductData)) || Number(askNewProductData) <= 0) {
+                return console.log(`Product price and quantity must be a positive number`);
             }
-        }
-        return "NSD doesn't exist for numbers you have entered.";
-    };
 
-    this.calculateNSK = function() {
-
-        if (this.number1 === undefined || this.number1 === undefined) {
-            this.enterData() 
+            newProduct[key] = Number(askNewProductData);
         }
 
-        return (this.number1 * this.number2) / this.calculateNSD(this.number1 * this.number2);
-        
+        if (key === 'productName') {
+            if (isNumber(Number(askNewProductData))) {
+                return console.log(`Product name must be real and understandable word.`);    
+            }
+
+            newProduct[key] = askNewProductData; 
+        }
+    }
+
+    if (Object.values(newProduct).every(value => value !== null) ) {
+        array.push(newProduct)
+        return array
     }
 }
+addNewProduct(purchaseList)
 
-const firstTest = new Calculator()
-firstTest.enterData()
-firstTest.calculateSum()
-firstTest.calculateNSD()
-firstTest.calculateNSK()
+// Створити функцію, яка повинна видаляти конкретний продукт із існуючий масиву продуктів
+// Дані про видалення такого продукту - користувач вводить із prompt лише назву
+
+const deleteSpecificProduct = (array) => {
+    let askUnnecessaryProduct = prompt(`Enter the name of a product you want to delete.`)
+    if (!isString(askUnnecessaryProduct) || isNumber(Number(askUnnecessaryProduct))) {
+        return console.log(`The value is empty or not a correct data type.`);
+    } 
+
+    return array.filter((product) => product.productName !== askUnnecessaryProduct) ;
+}
+const arrayWithoutProduct = deleteSpecificProduct(purchaseList)
+
+// 4. Дано масив [16, -3, 54,-4, 72,-56, 47, -12, 4, -16, 25, -37, 46, 4, -51, 27, -8, 4, -54, 76, -4, 12, 6, -35]
+
+const numberArray = [16, -3, 54, -4, 72, -56, 47, -12, 4, -16, 25, -37, 46, 4, -51, 27, -8, 4, -54, 76, -4, 12, 6, -35];
+
+// Знайти суму та кількість позитивних елементів.
+
+if (numberArray.some(i => !isNumber(i))) {
+    console.log(`Not a correct type of data`)
+} else {
+    let positiveNumbersQuantity = 0;
+    let positiveNumbersSum = 0;
+    for (let element of numberArray) {
+        if (element > 0) {
+            positiveNumbersQuantity++;
+            positiveNumbersSum += element;
+        }
+    } 
+
+// Знайти мінімальний елемент масиву та його порядковий номер.
+
+Math.min(...numberArray);
+numberArray.indexOf(Math.min(...numberArray));
+
+// Знайти максимальний елемент масиву та його порядковий номер.
+
+Math.max(...numberArray);
+numberArray.indexOf(Math.max(...numberArray));
+
+// Визначити кількість негативних елементів.
+
+let negativeNumbersQuantity = 0;
+for (let element of numberArray) {
+    if (element < 0) {
+        negativeNumbersQuantity++;
+    }
+  }
+
+// Знайти кількість непарних позитивних елементів.
+
+let oddPositiveNumbersQuantity = 0;
+for (let element of numberArray) {
+    if (element % 2 !== 0) {
+        oddPositiveNumbersQuantity++;
+    }
+  }
+
+// Знайти суму парних позитивних елементів.
+
+let evenPositiveNumbersSum = 0;
+for (let element of numberArray) {
+    if (element % 2 === 0) {
+        evenPositiveNumbersSum += element;
+    }
+  }
+
+// Знайти добуток позитивних елементів.
+
+let positiveNumbersProduct = 1;
+for (let element of numberArray) {
+    if (element > 0) {
+        positiveNumbersProduct *= element;
+    }
+  }
+}
