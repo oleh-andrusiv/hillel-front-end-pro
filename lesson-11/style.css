@@ -1,0 +1,77 @@
+*{
+    box-sizing: border-box;
+}
+p {
+    margin: 0;
+}
+.heading {
+    text-align: center;
+    color: #44ad7a;
+    text-shadow: 0 5px 5px lightgrey;
+}
+.list {
+    list-style: none;
+    padding-left: 0;
+    text-align: center;
+}
+.listItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 7px;
+    background-color: lightgrey;
+    margin: 5px 0;
+    padding: 5px;
+    padding-left: 20px;
+    position: relative;
+}
+.legend {
+    font-weight: bold;
+    background-color: #44ad7a;
+    border-radius: 0;
+    border: dashed 5px lightgray;
+}
+.evenItem {
+    background-color: #44ad7a;
+}
+.country {
+    width: 15px;
+    height: 10px;
+}
+.legendCountry {
+    width: 1%;
+}
+.name {
+    width: 15%;
+    text-transform: uppercase;
+    text-shadow: 2px 3px 5px;
+}
+.legendName, 
+.legendPrice {
+    width: 15%;
+}
+.addInfo,
+.legendAddInfo {
+    width: 10%;
+}
+.price {
+    width: 15%;
+    font-weight: bold;
+}
+.certificate {
+    color: red;
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    top: -50%;
+    left: 10px;
+    transform: translate(-50%, 50%);
+}
+.prices {
+    padding: 15px;
+    border: 5px dashed darkgray;
+    background-color: #44ad7a;
+    width: fit-content;
+    margin: 0 auto;
+    border-radius: 3px;
+}
