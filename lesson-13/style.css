@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.endOfRussia_gongratsText {
+    padding-top: 10px;
+}
+.endOfRussia,
+.smartphone,
+.dateTimer {
+    padding: 50px;
+}
+.dateTimer_elem {
+    display: inline;
+    margin-top: 0px;
+  }
