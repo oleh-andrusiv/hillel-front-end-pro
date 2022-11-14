@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding: 15px 50px;
+    background-color: black;
+    color: #fff;
+    font-size: 48px;
+    text-transform: capitalize;
+    height: 90px;
+}
+.header_accu-logo {
+    line-height: 0;
+    height: min-content;
+    display: flex;
+    margin: auto 0;
+}
+.header_city-select {
+    height: min-content;
+    display: flex;
+    margin: auto 0;
+}
+.header_city-selector {
+    font-size: 16px;
+    padding: 5px 10px 5px 10px;
+    margin-right: 5px;
+    background-color: #fff;
+}
+.header_city-select_btn {
+    padding: 5px 10px 5px 10px;
+    background-color: #F05514;
+    font-size: 16px;
+    font-weight: bold;
+}
+.main {
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+    background-color: #ebebeb;
+    height: 100vh;
+}
+.daily_forecast {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    border: solid 2px #F05514;
+    width: 20%;
+    background-color: #fff;
+    height: 350px;
+}
+.daily_forecast_date {
+    color: #666c72;
+    text-align: center;
+    font-size: 18px;
+    border-bottom: dashed 3px #666c72;
+    padding-bottom: 10px;
+}
+.daily_forecast_day {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.daily_forecast_day::before,
+.daily_forecast_night::before {
+    content: 'DAY';
+    font-size: 18px;
+    font-weight: bold;
+}
+.daily_forecast_night::before {
+    content: 'NIGHT';
+}
+.daily_forecast_temp-max,
+.daily_forecast_temp-min {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.forecast_error {
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #fff;
+    padding: 10px;
+    border: solid 2px #F05514;
+    height: max-content;
+    margin-top: 100px;
+}
