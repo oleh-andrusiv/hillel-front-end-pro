@@ -1,0 +1,115 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;  
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding: 15px 50px;
+    background-color: rgba(0,0,0,0.87);
+    color: #fff;
+    font-size: 32px;
+    height: 90px;
+}
+.header_imdb-logo,
+.header_movie-keyword,
+.header_movie-search
+ {
+    line-height: 0;
+    height: min-content;
+    display: flex;
+    margin: auto 0;
+}
+.header_movie-search_input {
+    font-size: 16px;
+    padding: 5px 10px 5px 10px;
+    margin-right: 5px;
+    background-color: #fff;
+}
+.header_movie-search_btn {
+    padding: 5px 10px 5px 10px;
+    background-color: #F5C518;
+    font-size: 16px;
+    font-weight: bold;
+}
+.movies-list_error {
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #fff;
+    padding: 10px;
+    border: solid 2px #F5C518;
+    height: max-content;
+    margin-top: 100px;
+}
+p {
+    margin: 0;
+}
+.heading {
+    text-align: center;
+    color: #44ad7a;
+    text-shadow: 0 5px 5px lightgrey;
+}
+.list {
+    list-style: none;
+    padding-left: 0;
+    text-align: center;
+    margin: 0 200px;
+}
+.listItem {
+    display: grid;
+    gap: 5px 100px;
+    grid-template-areas:
+    'poster title title title title title title title title details'
+    'poster year year year year year year year year details'
+    'poster type type type type type type type type details';
+    margin: 5px 0;
+    padding: 5px;
+    padding-left: 20px;
+    position: relative;
+    border-bottom: solid 1px darkgray;
+    text-align: left;
+}
+.poster {
+    width: 40px;
+    height: 60px;
+    grid-area: poster;
+}
+.title {
+    grid-area: title;
+}
+.year {
+    color: darkgray;
+    grid-area: year;
+}
+.type {
+    text-transform: capitalize;
+    grid-area: type;
+    color: darkgray;
+}
+.imdbID {
+    height: 30px;
+    width: max-content;
+    padding: 10px;
+    background-color: #F5C518;
+    grid-area: details;
+    text-align: center;
+}
+.detailsBlock {
+    font-size: 16px;
+    line-height: 20px;
+    background-color: #F5C518;
+    width: max-content;
+    margin: 0 auto;
+}
+.pages {
+    margin: 0 auto;
+    width: max-content;
+    padding: 5px;
+}
+.page {
+    padding: 5px;
+    background-color: #F5C518;
+    margin: 10px 5px;
+}
