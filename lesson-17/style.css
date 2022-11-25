@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding: 15px 50px;
+    background-color: black;
+    color: #fff;
+    font-size: 48px;
+    text-transform: capitalize;
+    height: 90px;
+}
+.header_accu-logo {
+    line-height: 0;
+    height: min-content;
+    display: flex;
+    margin: auto 0;
+}
+.header_city-select {
+    height: min-content;
+    display: flex;
+    margin: auto 0;
+}
+.header_city-selector {
+    font-size: 16px;
+    padding: 5px 10px 5px 10px;
+    margin-right: 5px;
+    background-color: #fff;
+}
+.header_city-select_btn {
+    padding: 5px 10px 5px 10px;
+    background-color: #F05514;
+    font-size: 16px;
+    font-weight: bold;
+}
+.body {
+    background-color: #ebebeb;
+    height: 100vh;
+}
+.main {
+    display: grid;
+    grid-template: 
+    'day1 day2 day3 day4 day5'
+    'neighbor neighbor neighbor neighbor neighbor';
+    padding: 25px;
+}
+.daily_forecast {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    /* border: solid 2px #F05514; */
+    width: 90%;
+    /* background-color: #fff; */
+    background-color: rgb(150 212 253 / 70%);
+    height: max-content;
+}
+.daily_forecast_date {
+    color: #000;
+    font-weight: 700;
+    text-align: center;
+    font-size: 18px;
+    border-bottom: dashed 3px #666c72;
+    padding-bottom: 10px;
+}
+.daily_forecast_day {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.daily_forecast_day::before,
+.daily_forecast_night::before {
+    content: 'DAY';
+    font-size: 18px;
+    font-weight: bold;
+}
+.daily_forecast_night::before {
+    content: 'NIGHT';
+}
+.daily_forecast_temp-max,
+.daily_forecast_temp-min,
+.daily_forecast_clouds-day,
+.daily_forecast_clouds-night {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.day1 {
+    grid-area: day1;
+}
+.day2 {
+    grid-area: day2;
+}
+.day3 {
+    grid-area: day3;
+}
+.day4 {
+    grid-area: day4;
+}
+.day5 {
+    grid-area: day5;
+}
+.forecast_error {
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #fff;
+    padding: 10px;
+    border: solid 2px #F05514;
+    height: max-content;
+    margin-top: 100px;
+    text-align: center;
+    grid-area: day3;
+}
+.neighbors-container {
+    margin: 30px auto;
+    width: max-content;
+    padding: 5px;
+    grid-area: neighbor;
+}
+.neighbors-container_neighbor-city {
+    padding: 11px;
+    background-color: #ff7237c9;
+    margin: 10px 5px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+/* .daily_forecast_night_icon,
+.daily_forecast_day_icon {
+    background-color: rgb(72, 159, 230, 70%);
+    border-radius: 20px;
+} */
