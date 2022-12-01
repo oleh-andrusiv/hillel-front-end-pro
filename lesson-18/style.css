@@ -1,0 +1,157 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;  
+}
+p {
+    margin: 0;
+}
+button:hover {
+    background-color: #000;
+    color: #fff;
+}
+.header,
+.footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 150px;
+    background-color: rgba(0,0,0,0.87);
+    color: #fff;
+    font-size: 24px;
+    height: 90px;
+    width: 100%;
+}
+.header_imdb-logo,
+.header_movie-keyword,
+.header_movie-search {
+    line-height: 0;
+    height: min-content;
+    display: flex;
+    margin: auto 0;
+}
+.header_movie-search {
+    width: 50%;
+    padding-left: 100px;
+}
+.header_movie-search_input {
+    font-size: 16px;
+    padding: 5px 10px 5px 10px;
+    margin-right: 5px;
+    background-color: #fff;
+    border-radius: 5px;
+    width: 75%;
+}
+.header_movie-search_btn {
+    padding: 5px 10px 5px 10px;
+    background-color: #F5C518;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.movies-list_error {
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #fff;
+    padding: 10px;
+    border: solid 2px #F5C518;
+    height: max-content;
+    width: max-content;
+    margin: 0 auto;
+}
+.list {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0 50px;
+    width: max-content;
+}
+.listItem {
+    display: grid;
+    gap: 5px 100px;
+    grid-template-areas:
+    'poster title title title title title title title title details'
+    'poster year year year year year year year year details'
+    'poster type type type type type type type type details';
+    margin: 5px 0;
+    padding: 5px;
+    padding-left: 20px;
+    position: relative;
+    border-bottom: solid 1px darkgray;
+    text-align: left;
+    width: min-content;
+}
+.poster {
+    width: 40px;
+    height: 60px;
+    grid-area: poster;
+}
+.title {
+    grid-area: title;
+}
+.year {
+    color: darkgray;
+    grid-area: year;
+}
+.type {
+    text-transform: capitalize;
+    grid-area: type;
+    color: darkgray;
+}
+.imdbID {
+    height: 30px;
+    width: max-content;
+    padding: 10px;
+    grid-area: details;
+    text-align: center;
+    background-color: #F5C518;
+    border-radius: 5px;
+    line-height: 0;
+    cursor: pointer;
+    margin-top: 25%;
+}
+.detailsBlock {
+    font-size: 16px;
+    line-height: 20px;
+    background-color: #F5C518;
+    width: max-content;
+    margin: 0 auto;
+}
+.pages {
+    margin: 0 auto;
+    width: max-content;
+    padding: 5px;
+}
+.page,
+.prev-next-btn {
+    padding: 5px;
+    background-color: #F5C518;
+    margin: 10px 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
+}
+.active-page {
+    border: dashed 3px #000;
+}
+.prev-next-btn {
+    width: 50px;
+    margin: 0 10px;
+}
+.inactive-btn {
+    cursor: none;
+    background-color: bisque;
+    color: darkgrey;
+    border: none;
+}
+.inactive-btn:hover {
+    background-color: bisque;
+    color: darkgrey;
+}
+.footer {
+    bottom: 0;
+}
+.footer_copyright {
+    color: rgb(114, 110, 110);
+    margin: 0 auto;
+}
